@@ -1,4 +1,4 @@
-const CACHE = 'site-v1';
+const CACHE = 'site-v2';
 const ASSETS = [
   './new.html',
    './index.html',
