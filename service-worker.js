@@ -7,9 +7,7 @@ const ASSETS = [
 ];
 
 self.addEventListener('install', evt => {
-  evt.waitUntil(
-    caches.open(CACHE).then(c => c.addAll(ASSETS))
-  );
+  evt.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
   self.skipWaiting();
 });
 
