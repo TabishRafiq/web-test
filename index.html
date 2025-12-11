@@ -26,7 +26,7 @@
     <h1>My Simple App</h1>
     <p>Install me on your home screen!</p>
     <button id="notify">Demo Notification</button>
-    <button id="install-btn" style="display:none;">Install App</button>
+    <button id="install-btn">Install App</button>
   </div>
 
   <script>
@@ -47,19 +47,23 @@
       } else alert('Notifications not supported');
     };
 
-    // Handle Install button
+    // Always show Install button
+    const installBtn = document.getElementById('install-btn');
+    installBtn.onclick = async () => {
+      if (!deferredPrompt) {
+        alert("App installation is not ready yet.");
+        return;
+      }
+      deferredPrompt.prompt(); // Show native install prompt
+      const choice = await deferredPrompt.userChoice;
+      console.log('Install result:', choice.outcome);
+      deferredPrompt = null;
+    };
+
+    // Capture beforeinstallprompt event
     window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault(); // Prevent Chrome automatic prompt
+      e.preventDefault(); // Prevent Chrome default prompt
       deferredPrompt = e;
-      const btn = document.getElementById('install-btn');
-      btn.style.display = 'inline-block'; // Show install button
-      btn.onclick = async () => {
-        btn.style.display = 'none';
-        deferredPrompt.prompt(); // Show native install prompt
-        const choice = await deferredPrompt.userChoice;
-        console.log('Install result:', choice.outcome);
-        deferredPrompt = null;
-      };
     });
   </script>
 </body>
