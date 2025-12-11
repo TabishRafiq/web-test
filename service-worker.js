@@ -1,8 +1,15 @@
 const CACHE = 'site-v1';
-const ASSETS = ['/', '/index.html', '/manifest.json', '/icon-192.png'];
+const ASSETS = [
+  './index.html',
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png'
+];
 
 self.addEventListener('install', evt => {
-  evt.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
+  evt.waitUntil(
+    caches.open(CACHE).then(c => c.addAll(ASSETS))
+  );
   self.skipWaiting();
 });
 
