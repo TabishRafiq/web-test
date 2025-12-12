@@ -2,6 +2,7 @@
   "name": "My Simple App",
   "short_name": "SimpleApp",
   "start_url": "./new.html?v=abc",
+  "scope": "/",
   "display": "standalone",
   "handle_links": "preferred",
   "background_color": "#ffffff",
