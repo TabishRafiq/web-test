@@ -3,6 +3,7 @@
   "short_name": "SimpleApp",
   "start_url": "./new.html?v=abc",
   "display": "standalone",
+  "handle_links": "preferred",
   "background_color": "#ffffff",
   "theme_color": "#E1BFF6",
   "icons": [
