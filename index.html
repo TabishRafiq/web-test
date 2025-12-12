@@ -42,14 +42,6 @@
         .catch(err => console.warn('SW registration failed:', err));
     }
 
-    // Demo notification
-    document.getElementById('notify').onclick = async () => {
-      if ('Notification' in window) {
-        const p = await Notification.requestPermission();
-        if (p === 'granted') new Notification('Hello from your app!');
-      } else alert('Notifications not supported');
-    };
-
     // Always show Install button
     const installBtn = document.getElementById('install-btn');
     installBtn.onclick = async () => {
@@ -68,6 +60,12 @@
       e.preventDefault(); // Prevent Chrome default prompt
       deferredPrompt = e;
     });
+
+    window.addEventListener('appinstalled', () => {
+    const installBtn = document.getElementById('install-btn');
+    installBtn.innerHTML = "Hi"
+});
+    
   </script>
 </body>
 </html>
