@@ -63,11 +63,6 @@
       deferredPrompt = null;
     };
 
-    window.addEventListener('appinstalled', () => {
-      const installBtn = document.getElementById('install-btn');
-      installBtn.innerHTML = "Hello";
-    });
-
     // Capture beforeinstallprompt event
     window.addEventListener('beforeinstallprompt', (e) => {
       e.preventDefault(); // Prevent Chrome default prompt
