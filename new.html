@@ -2,7 +2,17 @@
 <html lang="en">
 <head>
   <style>
-    button {
+    .button {
+      background: #4f46e5;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .button2 {
       background: #4f46e5;
       color: white;
       padding: 12px 20px;
@@ -12,7 +22,7 @@
       -webkit-tap-highlight-color: transparent;
     }
     
-    button:active {
+    .button:active {
       transform: scale(0.9);
     }
   </style>
@@ -26,7 +36,14 @@
   
 <body style="margin:0; display:flex; justify-content:center; align-items:center; height:100vh; font-family:system-ui; background:#E1BFF6;">
   <h1>Welcome to Simpl!</h1>
-  <button>Hello</button>
+  <button class="button">Hello</button>
+  <button
+  ontouchstart="this.style.transform='scale(0.9)'"
+  ontouchend="this.style.transform='scale(1)'"
+  class="button2"
+>
+  Press me
+</button>
 </body>
 
 </html>
